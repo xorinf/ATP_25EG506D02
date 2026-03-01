@@ -1,6 +1,6 @@
 # Advanced Training Program (ATP)
 
-This repository contains notes and assignments from the Advanced Training Program focusing on the MERN stack (MongoDB, Express, React, Node.js). 
+This repository contains notes and assignments from the Advanced Training Program focusing on the MERN stack [MongoDB, Express, React, Node.js]. 
 
 ---
 
