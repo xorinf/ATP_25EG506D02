@@ -1,0 +1,80 @@
+### read all users
+GET http://localhost:6767/user-api/users
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1lb3dtZW93d0BnbWFpbC5jb20iLCJpYXQiOjE3NzMyODgzNzcsImV4cCI6MTc3MzI4ODQzN30.xNexsITagDMqvmxcU4VjkVFF-WjZTPzDwL4Z28r3p2s; Path=/; HttpOnly; SameSite=Lax
+
+### user auth
+POST  http://localhost:6767/user-api/auth
+Content-Type: application/json
+
+{
+    "email" : "meowmeoww@gmail.com",
+    "password" : "meowmeow"
+}
+
+### read user by ID
+GET http://localhost:6767/user-api/users/69abb2ff1be1a00d82c54b24
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1lb3dtZW93d0BnbWFpbC5jb20iLCJpYXQiOjE3NzI4NzQwMTgsImV4cCI6MTc3Mjg3NDA0M30.8BNmlm3Ah1u0PBwOmrFw29GwtNhSLB4xHdysYjwKKA8; Path=/; HttpOnly; SameSite=Lax
+
+### use new user
+POST http://localhost:6767/user-api/users
+Content-Type: application/json
+
+{
+    "username" : "meoww",
+    "password" : "meowmeow",
+    "email" : "meowmeoww@gmail.com",
+    "age" : 4
+}
+### modify the users 
+PUT http://localhost:6767/user-api/users/69abe91b121d350b434e3ed8
+Content-Type: application/json
+
+{
+    "username" : "MeYa",
+    "password" : "meowmeow@valo",
+    "email" : "meowmeow@gmail.com",
+    "age" : 4
+}
+### delete users/resources
+DELETE http://localhost:6767/user-api/users/69aa84cedf86b5764d0d5a3d
+
+### Delete all
+
+DELETE http://localhost:6767/user-api/users/
+#
+
+
+
+### get all products
+GET http://localhost:6767/product-api/product
+
+### get products by brand
+GET http://localhost:6767/product-api/product/1
+
+### add products
+POST http://localhost:6767/product-api/product
+Content-Type: application/json
+
+{
+    "productId" : 1,
+    "productName" : "MacBook",
+    "price" : 17500,
+    "brand" : "apple"
+}
+### modify products
+PUT http://localhost:6767/product-api/product/1
+Content-Type: application/json
+
+{
+    "product_id" : 1,
+    "name" : "MacBook",
+    "brand" : "apple",
+    "price" : 27500
+}
+
+### delete products by id
+DELETE http://localhost:6767/product-api/product/
+
+
+###
+GET http://localhost:6767/user-api/users
