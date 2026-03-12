@@ -1,0 +1,62 @@
+### read all users
+
+GET http://localhost:6767/user-api/users
+
+### read user by ID
+GET http://localhost:6767/users/3
+
+### use new user
+POST http://localhost:6767/user-api/users
+Content-Type: application/json
+
+{
+    "id" : 3,
+    "name" : "brr",
+    "age" : 40
+}
+### modify the users 
+PUT http://localhost:6767/user-api/users
+Content-Type: application/json
+
+{
+    "id" : 1,
+    "name" : "fahhhh",
+    "age" : 201
+}
+### delete users/resources
+DELETE http://localhost:6767/user-api/users/3
+
+
+
+
+
+
+### get all products
+GET http://localhost:6767//product-api/product
+
+### get products by brand
+GET http://localhost:6767/product-api/product/apple
+
+### add products
+POST http://localhost:6767/product-api/product
+Content-Type: application/json
+
+{
+    "product_id" : 1,
+    "name" : "Laptop",
+    "brand" : "apple",
+    "price" : 175000
+}
+### modify products
+PUT http://localhost:6767//product-api/product
+Content-Type: application/json
+
+{
+    "product_id" : 1,
+    "name" : "MacBook",
+    "brand" : "apple",
+    "price" : 275000
+}
+
+### delete products by id
+DELETE http://localhost:6767/product-api/product/1
