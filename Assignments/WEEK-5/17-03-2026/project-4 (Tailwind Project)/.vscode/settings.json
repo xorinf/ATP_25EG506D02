@@ -1,0 +1,13 @@
+{
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html",
+    "javascript": "javascript",
+    "typescriptreact": "typescriptreact",
+    "tailwindCSS.experimental.configFile": "src/index.css"
+    
+  }
+  
+}
