@@ -17,6 +17,8 @@ let products = [];
 productApp.get("/product", (request, response) => {
   response.json({ message: "Fetched all Products", payload: products });
 });
+
+
 // read all products by brand
 productApp.get("/product/:brand", (request, response) => {
   let brand = request.params.brand;
@@ -35,12 +37,15 @@ productApp.get("/product/:brand", (request, response) => {
     payload: products[index],
   });
 });
+
+
 // create new products
 productApp.post("/product", (request, response) => {
   const new_product = request.body;
   products.push(new_product);
   response.json({ message: "Product Added!" });
 });
+
 // update the product
 productApp.put("/product", (request, response) => {
   let modifiedPrd = request.body;
@@ -53,6 +58,7 @@ productApp.put("/product", (request, response) => {
   users.splice(index, 1, modifiedPrd);
   response.json({ message: "The Product is modidied!" });
 });
+
 // delete product by id
 productApp.delete("/product/:id", (request, response) => {
   let id = Number(request.params.id);
