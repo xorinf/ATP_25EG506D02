@@ -1,57 +1,61 @@
-/* 
-# font size units!
-em - font size of parent element! ex: 10rem -> root size(font size) * 10 
-rem - font size of root element!
-
-# view port units vw, vh
-
-*/
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
-
-
 /* reset */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
 html {
   font-family: "Google Sans Flex", sans-serif;
 }
 
+/* FIX: Removed commas from margins */
 .container {
-  margin: 25px, 100px;
+  margin: 25px 100px; 
   padding: 50px;
   background-color: palevioletred;
 }
+
 main h4 {
   margin-left: 105px;
   color: black;
-  text-size-adjust: 55px;
+  font-size: 24px; /* FIX: Changed from text-size-adjust */
 }
-.cards {
 
+.cards {
   display: flex;
-  justify-content: center;
-  margin: 25px 100px;
+  flex-wrap: wrap; /* FIX: Allows cards to drop to next line if needed */
+  justify-content: space-around;
+  margin: 25px 0; /* Adjusted to fit inside container better */
   text-align: center;
   background-color: pink;
-  justify-content: space-around;
 }
-section button {
-  height: 30px;
-  width: 75px;
-  float: left;
+
+/* FIX: Added width to sections so they align as cards */
+.cards section {
+  flex: 1 1 200px; 
+  margin: 10px;
+  padding: 15px;
+  background: white; /* Makes text readable against pink */
+  border-radius: 8px;
 }
+
 .cards img {
   border-radius: 10px;
   display: block;
-  margin: auto;
-}
-.cards section {
-  justify-content: center;
+  margin: 10px auto;
+  max-width: 100%; /* FIX: Prevents image overflow */
+  height: auto;
 }
 
+section button {
+  height: 30px;
+  width: 90px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* Navigation */
 nav {
   height: 67px;
   display: flex;
@@ -67,29 +71,25 @@ nav ul {
   justify-content: space-around;
 }
 
-.website-name {
-  width: 150px;
-  display: flex;
+.search-box, .search-btn {
+  height: 30px;
+  padding: 0 5px;
 }
 
-.search-box {
-  height: 30px;
-  width: 175px;
-}
-.search-btn {
-  height: 30px;
-  width: 75px;
-}
-
-main h1,
-h3 {
+main h1, main h3 {
   text-align: center;
+  margin-bottom: 10px;
 }
+
+/* Footer */
 footer {
   display: flex;
-  margin: 25px, 100px;
+  margin: 25px 0; /* FIX: Removed commas */
   background-color: grey;
+  color: white;
 }
+
 footer section {
   margin: 20px;
+  flex: 1;
 }
