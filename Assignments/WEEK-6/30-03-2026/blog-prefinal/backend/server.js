@@ -5,7 +5,7 @@ import { empAPP } from './emp-api/api.js'
 
 const app = exp();
 app.use(exp.json()); 
-app.use(cors({origin:['http://localhost:5173']}))
+app.use(cors({origin: 'http://localhost:5176'}));
 
 app.use("/emp", empAPP);
 
