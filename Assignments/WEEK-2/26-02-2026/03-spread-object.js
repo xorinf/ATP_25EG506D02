@@ -37,5 +37,5 @@ let user = {
   city: "Hyderabad",
 };
 
-updatedUser = { ...user, age: 25 };
+let updatedUser = { ...user, age: 25 };
 console.log("\n", user, "\n", updatedUser);

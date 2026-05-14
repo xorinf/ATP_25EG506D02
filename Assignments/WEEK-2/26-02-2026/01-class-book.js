@@ -14,15 +14,15 @@ class Book {
   returnBook() {
     this.isAvailable = true;
     console.log(`${this.title} is now available!`);
-    this.ne = ""
   }
   getInfo() {
+    let statusMessage;
     if (this.isAvailable){
-        this.ne = "BOOK AVAILABLE"
+        statusMessage = "BOOK AVAILABLE"
     }else{
-        this.ne = "NOT AVAILABLE"
+        statusMessage = "NOT AVAILABLE"
     }
-    return `${this.title} by ${this.author} (${this.pages} pages) [${this.ne}]`;
+    return `${this.title} by ${this.author} (${this.pages} pages) [${statusMessage}]`;
   }
   isLongBook() {
     return this.pages > 300;
@@ -40,10 +40,10 @@ book5 = new Book("GPU Cake", "Jensung Huang", 400);
 books.push(book1, book2, book3, book4, book5)
 
 let showAllBooks = () => {
-    for (i of books){
-    console.log(i.getInfo())
-}
-console.log("\n")
+    for (let book of books){
+      console.log(book.getInfo())
+    }
+    console.log("\n")
 }
 // Q1
 showAllBooks()

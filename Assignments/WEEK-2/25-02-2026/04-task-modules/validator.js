@@ -1,8 +1,6 @@
-import { or } from "firebase/firestore/lite";
-
-export function validateTitle(titlee = true) {
+export function validateTitle(taskTitle = "") {
   try {
-    return titlee.length > 3 && titlee;
+    return taskTitle.length > 3 && taskTitle;
   } catch (err) {}
 }
 

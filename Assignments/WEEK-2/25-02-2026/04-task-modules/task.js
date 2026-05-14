@@ -4,7 +4,7 @@ import {
   validateTitle,
 } from "./validator.js";
 
-export let task = [];
+export let tasks = [];
 export function addTask(title, priority, dueDate) {
   if (
     validateTitle(title) &&
@@ -13,15 +13,15 @@ export function addTask(title, priority, dueDate) {
   ) {
     console.log("inputs validated!");
     let status = false;
-    task.push({ title, priority, dueDate, status });
+    tasks.push({ title, priority, dueDate, status });
     return true;
   }
   return false;
 }
 export function getAllTasks() {
-  return task;
+  return tasks;
 }
 export function completeTask(taskId) {
-  task[taskId].status = true;
-  return task[taskId];
+  tasks[taskId].status = true;
+  return tasks[taskId];
 }

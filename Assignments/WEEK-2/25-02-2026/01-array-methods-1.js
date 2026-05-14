@@ -17,13 +17,18 @@ Tasks:
  */
 const temperatures = [32, 35, 28, 40, 38, 30, 42];
 
-const temp_above35 = temperatures.filter((element) => element > 34.9)
-const temp_toFarenheit = temperatures.map((element) => (element * 9/5) + 32)
-let average_sum = temperatures.reduce((acc, ele) => acc + ele)
-average_sum = average_sum / temperatures.length
+const temperaturesAbove35 = temperatures.filter((temperature) => temperature > 35);
+const temperaturesInFahrenheit = temperatures.map((temperature) => (temperature * 9/5) + 32);
+const totalTemperatureSum = temperatures.reduce((sum, temperature) => sum + temperature, 0);
+const averageTemperature = totalTemperatureSum / temperatures.length;
+const firstTempAbove40 = temperatures.find((temperature) => temperature > 40);
+const indexOfTemp28 = temperatures.findIndex((temperature) => temperature === 28);
 
-// const find_above40 = temperatures.find(() => )
-console.log(find_above40)
+console.log(temperaturesAbove35);
+console.log(temperaturesInFahrenheit);
+console.log(averageTemperature);
+console.log(firstTempAbove40);
+console.log(indexOfTemp28);
 
 
 /*
@@ -48,14 +53,16 @@ Tasks:
 const courses = ["javascript", "react", "node", "mongodb", "express"];
 
 const longCourses = courses.filter(course => course.length > 5);
-const upperCourses = courses.map(course => course.toUpperCase());
-const findReact = courses.find(course => course === "react");
-const indexNode = courses.findIndex(course => course === "node");
+const upperCaseCourses = courses.map(course => course.toUpperCase());
+const combinedCoursesString = upperCaseCourses.reduce((resultString, course) => resultString ? resultString + " | " + course : course, "");
+const reactCourse = courses.find(course => course === "react");
+const nodeCourseIndex = courses.findIndex(course => course === "node");
+
 console.log(longCourses);
-console.log(upperCourses);
-console.log(courseString);
-console.log(findReact);
-console.log(indexNode);
+console.log(upperCaseCourses);
+console.log(combinedCoursesString);
+console.log(reactCourse);
+console.log(nodeCourseIndex);
 /*
 Assignment 3: Student Marks List
 --------------------------------
@@ -74,13 +81,14 @@ Tasks:
 
 const marks = [78, 92, 35, 88, 40, 67];
 
-const passMarks = marks.filter(mark => mark >= 40);
-const graceMarks = marks.map(mark => mark + 5);
-const highestMark = marks.reduce((max, mark) => mark > max ? mark : max, marks[0]);
-const firstBelow40 = marks.find(mark => mark < 40);
-const index92 = marks.findIndex(mark => mark === 92);
-console.log(passMarks);
-console.log(graceMarks);
-console.log(highestMark);
-console.log(firstBelow40);
-console.log(index92);
+const passedStudentsMarks = marks.filter(mark => mark >= 40);
+const marksWithGrace = marks.map(mark => mark + 5);
+const maximumMark = marks.reduce((max, mark) => mark > max ? mark : max, marks[0]);
+const firstFailingMark = marks.find(mark => mark < 40);
+const indexOf92Mark = marks.findIndex(mark => mark === 92);
+
+console.log(passedStudentsMarks);
+console.log(marksWithGrace);
+console.log(maximumMark);
+console.log(firstFailingMark);
+console.log(indexOf92Mark);

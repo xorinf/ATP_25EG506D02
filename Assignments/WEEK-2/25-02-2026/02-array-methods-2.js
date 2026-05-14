@@ -22,23 +22,23 @@ const cart = [
   { id: 104, name: "Monitor", price: 12000, quantity: 1, inStock: true }
 ];
 // #1
-const inStock = cart.filter((cartObj) => {
-    if (cartObj.inStock){
+const inStockItems = cart.filter((item) => {
+    if (item.inStock){
         return true
     }
 })
-console.log("(list of items which are in stock) : ", inStock)
+console.log("(list of items which are in stock) : ", inStockItems)
 // #2
-const new_arr = cart.map((cartObj) => [cartObj.name, cartObj.price])
-console.log("New array : ", new_arr)
+const itemPrices = cart.map((item) => [item.name, item.price])
+console.log("New array : ", itemPrices)
 // #3
-const grand_total = cart.reduce((acc, cartObj) => acc + cartObj.price, 0)
-console.log("The total price : ", grand_total)
+const totalCartValue = cart.reduce((total, item) => total + item.price, 0)
+console.log("The total price : ", totalCartValue)
 // #4
-const mouse_details = cart.find((cartObj) => cartObj.name === "Mouse")
-console.log("Details of mouse : ", mouse_details)
+const mouseDetails = cart.find((item) => item.name === "Mouse")
+console.log("Details of mouse : ", mouseDetails)
 // #5
-const indexOfKeyboard = cart.findIndex((cartObj) => cartObj.name === "Keyboard")
+const indexOfKeyboard = cart.findIndex((item) => item.name === "Keyboard")
 console.log("Index of Keyboard : ", indexOfKeyboard)
 
 
@@ -79,38 +79,38 @@ const students = [
   { id: 5, name: "Arjun", marks: 40 }
 ];
 // 1
-const peps_pass = students.filter((stdObj) => stdObj.marks >= 40)
-console.log("Student who passed : \n", peps_pass)
+const passedStudents = students.filter((student) => student.marks >= 40)
+console.log("Student who passed : \n", passedStudents)
 // 2
-const new_wh = students.map((stdObj) => {
-    if (stdObj.marks >= 90){
-        stdObj.grade = 'A'
-        return stdObj
+const studentsWithGrades = students.map((student) => {
+    if (student.marks >= 90){
+        student.grade = 'A'
+        return student
     }
-    else if (stdObj.marks >= 75){
-        stdObj.grade = 'B'
-        return stdObj
+    else if (student.marks >= 75){
+        student.grade = 'B'
+        return student
     }
-    else if (stdObj.marks >= 60){
-        stdObj.grade = 'C'
-        return stdObj
+    else if (student.marks >= 60){
+        student.grade = 'C'
+        return student
     }
     else {
-        stdObj.grade = 'D'
-        return stdObj
+        student.grade = 'D'
+        return student
     }
 }) 
-console.log("Added Grade : ", new_wh)
+console.log("Added Grade : ", studentsWithGrades)
 
 // 3
-let avg_std = students.reduce((acc, ele) => acc + ele.marks, 0)
-avg_std = avg_std / 2
-console.log("average marks of students : ", avg_std)
+let averageMarks = students.reduce((total, student) => total + student.marks, 0)
+averageMarks = averageMarks / students.length
+console.log("average marks of students : ", averageMarks)
 
 // 4
 
-const nameOfstud = students.find((studObj) => studObj.marks === 92)
-console.log("Name of the student is :", nameOfstud.name)
+const studentWith92Marks = students.find((student) => student.marks === 92)
+console.log("Name of the student is :", studentWith92Marks.name)
 
 /*
 ASSIGNMENT 3:
@@ -144,26 +144,26 @@ const employees = [
   { id: 204, name: "Pooja", salary: 30000, department: "Sales" }
 ];
 
-const itEmployees = employees.filter(e => e.department === "IT");
+const itEmployees = employees.filter(employee => employee.department === "IT");
 
-const employeesWithBonus = employees.map(e => ({
-  ...e,
-  netSalary: e.salary + e.salary * 0.1
+const employeesWithBonus = employees.map(employee => ({
+  ...employee,
+  netSalary: employee.salary + employee.salary * 0.1
 }));
 
 const totalPayout = employees.reduce(
-  (acc, e) => acc + e.salary,
+  (total, employee) => total + employee.salary,
   0
 );
 
-const salary30000 = employees.find(e => e.salary === 30000);
+const employeeWithSalary30000 = employees.find(employee => employee.salary === 30000);
 
-const indexOfNeha = employees.findIndex(e => e.name === "Neha");
+const indexOfNeha = employees.findIndex(employee => employee.name === "Neha");
 
 console.log(itEmployees);
 console.log(employeesWithBonus);
 console.log(totalPayout);
-console.log(salary30000);
+console.log(employeeWithSalary30000);
 console.log(indexOfNeha);
 
 /*
@@ -198,19 +198,19 @@ const movies = [
   { id: 4, title: "Interstellar", genre: "Sci-Fi", rating: 8.6 }
 ];
 
-const sciFiMovies = movies.filter(m => m.genre === "Sci-Fi");
+const sciFiMovies = movies.filter(movie => movie.genre === "Sci-Fi");
 
 const movieTitles = movies.map(
-  m => `${m.title} (${m.rating})`
+  movie => `${movie.title} (${movie.rating})`
 );
 
 const averageRating =
-  movies.reduce((acc, m) => acc + m.rating, 0) / movies.length;
+  movies.reduce((total, movie) => total + movie.rating, 0) / movies.length;
 
-const jokerMovie = movies.find(m => m.title === "Joker");
+const jokerMovie = movies.find(movie => movie.title === "Joker");
 
 const indexOfAvengers = movies.findIndex(
-  m => m.title === "Avengers"
+  movie => movie.title === "Avengers"
 );
 
 console.log(sciFiMovies);
@@ -250,26 +250,26 @@ const transactions = [
 ];
 
 const creditTransactions = transactions.filter(
-  t => t.type === "credit"
+  transaction => transaction.type === "credit"
 );
 
 const transactionAmounts = transactions.map(
-  t => t.amount
+  transaction => transaction.amount
 );
 
 const finalBalance = transactions.reduce(
-  (acc, t) => t.type === "credit"
-    ? acc + t.amount
-    : acc - t.amount,
+  (balance, transaction) => transaction.type === "credit"
+    ? balance + transaction.amount
+    : balance - transaction.amount,
   0
 );
 
 const firstDebit = transactions.find(
-  t => t.type === "debit"
+  transaction => transaction.type === "debit"
 );
 
 const indexOf10000 = transactions.findIndex(
-  t => t.amount === 10000
+  transaction => transaction.amount === 10000
 );
 
 console.log(creditTransactions);

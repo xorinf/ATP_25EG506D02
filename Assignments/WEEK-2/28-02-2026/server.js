@@ -1,12 +1,12 @@
-import exp from "express";
+import express from "express";
 
 // use body parser middleware
 
-const app = exp();
-app.use(exp.json())
+const app = express();
+app.use(express.json())
 let users = []
 const port = 6767;
-app.listen(port, () => console.log(`server listning at port : ${port} ...`));
+app.listen(port, () => console.log(`server listening at port : ${port} ...`));
 
 app.get("/users", (request, response) => {
 
@@ -15,48 +15,44 @@ app.get("/users", (request, response) => {
 
 });
 app.get("/users/:id", (request, response) => {
-    let idofURL = Number(request.params.id)
+    let userId = Number(request.params.id)
     let index = 0
-    if (idofURL) { index = users.findIndex((obj) => { return obj.id === idofURL})}
+    if (userId) { index = users.findIndex((user) => { return user.id === userId})}
     if (index == -1){ return response.json({ message: "user not found!"});}
-    return response.json({ message: "The sent!", payload: users[index] });
+    return response.json({ message: "User sent!", payload: users[index] });
     
 
 });
 
 app.post("/users", (request, response) => {
-
-    
-    
-
-    const new_vae = request.body
-    users.push(new_vae)
+    const newUser = request.body
+    users.push(newUser)
     response.json({message : "User Created"})
 });
 
 app.put("/users", (request, response) => {
 
-    let modifieduser = request.body;
-    let index = users.findIndex((userObj) => {
-        return userObj.id == modifieduser.id;
+    let modifiedUser = request.body;
+    let index = users.findIndex((user) => {
+        return user.id == modifiedUser.id;
     })
     if (index === -1){
         return response.json({message : "User not found"}
         )
     }
-    users.splice(index, 1, modifieduser)
-    response.json({ message: "The users are modidied!" });
+    users.splice(index, 1, modifiedUser)
+    response.json({ message: "The users are modified!" });
 
 });
 
 app.delete("/users/:id", (request, response) => {
 
-    let idofURL = Number(request.params.id)
-    let index = users.findIndex((obj) => {
-        return obj.id === idofURL
+    let userId = Number(request.params.id)
+    let index = users.findIndex((user) => {
+        return user.id === userId
     })
     if (index === -1){ return response.json({message : "user Not Found"})}
-    users.splice(idofURL, 1)
+    users.splice(index, 1)
     response.json({message : "user deleted"})
 
 });
@@ -78,32 +74,31 @@ app.get("/product", (request, response) => {
 // read all products by brand
 app.get("/product/:brand", (request, response) => {
     let brand = request.params.brand;
-    // console.log(brand)
     let index = 0
-    if (brand) { index = products.findIndex((obj) => { return obj.brand == brand})}
+    if (brand) { index = products.findIndex((product) => { return product.brand == brand})}
     if (index == -1){ return response.json({ message: "Product not found!"});}
     return response.json({ message: "Product Fetched by Brand", payload: products[index] });
 });
 // create new products
 app.post("/product", (request, response) => {
 
-    const new_product = request.body
-    products.push(new_product)
+    const newProduct = request.body
+    products.push(newProduct)
     response.json({message : "Product Added!"})
 });
 // update the product
 app.put("/product", (request, response) => {
 
-    let modifiedPrd = request.body;
-    let index = products.findIndex((userObj) => {
-        return userObj.product_id == modifiedPrd.product_id;
+    let modifiedProduct = request.body;
+    let index = products.findIndex((product) => {
+        return product.product_id == modifiedProduct.product_id;
     })
     if (index === -1){
         return response.json({message : "Product not found"}
         )
     }
-    users.splice(index, 1, modifiedPrd)
-    response.json({ message: "The Product is modidied!" });
+    products.splice(index, 1, modifiedProduct)
+    response.json({ message: "The Product is modified!" });
 
 });
 // delete product by id

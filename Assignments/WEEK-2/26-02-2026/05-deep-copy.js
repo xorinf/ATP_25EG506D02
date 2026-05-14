@@ -36,14 +36,14 @@ const order = {
   items: [{ product: "Laptop", price: 70000 }],
 };
 //1
-let m_order = structuredClone(order)
-console.log(order, m_order)
+let deepOrderCopy = structuredClone(order)
+console.log(order, deepOrderCopy)
 //2 
 // i
-m_order.customer.address.city = 'Hyd'
+deepOrderCopy.customer.address.city = 'Hyd'
 //ii
-m_order.items[0].price = 5098
+deepOrderCopy.items[0].price = 5098
 //iii
 console.log(
-    order, m_order
+    order, deepOrderCopy
 )

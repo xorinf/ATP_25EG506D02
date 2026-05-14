@@ -29,19 +29,19 @@ const user = {
   },
 };
 //1
-let sh_userCopy = {...user}
+let shallowUserCopy = {...user}
 
 console.log(user)
-console.log(sh_userCopy)
+console.log(shallowUserCopy)
 
 console.log("Q2 \n")
 //2
 //i
-sh_userCopy.name = "Ramu";
+shallowUserCopy.name = "Ramu";
 //ii
-sh_userCopy.preferences.theme = "StarWars"
+shallowUserCopy.preferences.theme = "StarWars"
 //iii
-console.log("\n", user, "\n", sh_userCopy)
+console.log("\n", user, "\n", shallowUserCopy)
 //iv
 
 // the copy also changes the orignal one the reference is stored in the obj's
