@@ -1,4 +1,12 @@
+import Button from "./Button";
+
 function Navbar() {
+    const navLinks = [
+        { label: "Home", href: "<Navbar />" },
+        { label: "About Author", href: "" },
+        { label: "About this Project", href: "" }
+    ];
+
     return (
         <nav className="flex items-center justify-between bg-white border-b border-gray-100 p-4 shadow-sm font-mono sticky top-0 z-50">
             <div className="flex items-center gap-2">
@@ -6,13 +14,13 @@ function Navbar() {
                 <span className="text-xl font-bold text-blue-600 hidden sm:inline">MERN Blog</span>
             </div>
             <ul className="hidden md:flex gap-8 text-gray-600 font-medium">
-                <li><a href="<Navbar />" className="hover:text-blue-500">Home</a></li>
-                <li><a href="" className="hover:text-blue-500">About Author</a></li>
-                <li><a href="" className="hover:text-blue-500">About this Project</a></li>
+                {navLinks.map((link, index) => (
+                    <li key={index}><a href={link.href} className="hover:text-blue-500">{link.label}</a></li>
+                ))}
             </ul>
             <div className="flex gap-4">
-                <button className="px-4 py-2 text-sm">Login</button>
-                <button className="px-4 py-2 text-sm bg-blue-600">Sign Up</button>
+                <Button>Login</Button>
+                <Button className="bg-blue-600 text-white">Sign Up</Button>
             </div>
         </nav>
     )
